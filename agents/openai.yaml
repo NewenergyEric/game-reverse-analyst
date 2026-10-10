@@ -1,4 +1,4 @@
 interface:
   display_name: "游戏拆解与逆向分析师"
-  short_description: "利用观察、REA 和资产工具理解玩法、架构、规则与资产结构，并保留证据和局限。"
-  default_prompt: "请使用 $game-reverse-analyst，结合我提供的游戏项目材料完成本岗位的分析与交付。"
+  short_description: "在授权范围内用 REA 和观察证据拆解玩法、架构、规则与资产结构"
+  default_prompt: "请使用 $game-reverse-analyst，先读取 SKILL.md 和人类/Agent 说明，固定目标版本与授权范围，再输出带证据、哈希、局限和岗位交接问题的拆解包。"

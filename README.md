@@ -1,41 +1,49 @@
 # 游戏拆解与逆向分析师
 
-**Game Reverse Analyst · game-reverse-analyst**
+**看懂别人怎么工作，才能知道自己该造什么。**
 
-利用观察、REA 和资产工具理解玩法、架构、规则与资产结构，并保留证据和局限。
+在拥有授权的前提下，用观察、REA 和适配的资产工具理解游戏的玩法、架构、规则、数值和资产结构。输出带证据、哈希、覆盖范围和局限的拆解包，供策划、程序、Art Director 和项目经理继续工作。
 
-这是面向 Agent 的岗位 Skill 与轻量工具包，版本 **0.1.0**。入口是 [SKILL.md](SKILL.md)；协作开发先读 [AGENTS.md](AGENTS.md)。本仓库公开方法、代码与原创测试例，实际游戏材料放在使用者自己的工作区。
+[30 秒开始](docs/HUMAN-GUIDE.md) · [Agent 调用说明](docs/AGENT-GUIDE.md) · [读取 Skill](SKILL.md) · [REA 接入](references/rea-integration.md) · [Darwin 审查](evals/darwin-review.md)
+
+![Validate](https://github.com/NewenergyEric/game-reverse-analyst/actions/workflows/validate.yml/badge.svg) ![MIT](https://img.shields.io/badge/license-MIT-151715.svg) ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-225d4b.svg)
 
 ## 立即使用
-
-将本仓库交给能读取 GitHub/本地文件的 Agent，要求它阅读 SKILL.md 并结合你的材料执行该岗位。也可克隆到本地，或将完整仓库放入宿主支持的 Skill 目录；保留 scripts、references 和 data 等配套文件。
 
 ```text
 git clone https://github.com/NewenergyEric/game-reverse-analyst.git
 cd game-reverse-analyst
-```
-
-Python 3.10+，核心 Python 工具只使用标准库。REA 项目另需满足 package.json 的 Node 版本和 npm 依赖。
-
-```text
 npm ci --ignore-scripts
 python scripts/rea_bridge.py check
 python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/demo-analysis
 ```
 
-输出到新目录，示例可直接运行。示例中的游戏规则、数值和任务只用于格式/行为验证，不代表某个实际游戏的批准要求。
+把仓库交给能读取 GitHub 或本地文件的 Agent，要求它先读 `SKILL.md` 并固定目标版本、授权范围和研究问题。REA 当前锁定在 `package-lock.json`；Node 版本要求见 `package.json`。
 
-## 交接关系
+## 五层拆解
 
-| 岗位 | 仓库 | 交付 |
-|---|---|---|
-| 游戏市场研究总监 | [game-market-intelligence](https://github.com/NewenergyEric/game-market-intelligence) | 证据、经营判断与验证建议 |
-| 游戏拆解与逆向分析师 | [game-reverse-analyst](https://github.com/NewenergyEric/game-reverse-analyst) | 玩法/架构/资产拆解与局限 |
-| 游戏制作项目经理 | [game-production-manager](https://github.com/NewenergyEric/game-production-manager) | SOW、工作包、任务与变更 |
-| 美术总监 | [art-director-skill](https://github.com/NewenergyEric/art-director-skill) | 专业规范、家族与样板、团队规则包 |
+| 层 | 输出 |
+|---|---|
+| 玩法与体验 | 核心循环、输入、状态、反馈、成长和内容节奏 |
+| 技术架构 | 模块、调用、数据、资源加载、引擎/原生边界和网络线索 |
+| 数值与规则 | 配置、函数、适用输入、未知分支和验证路径 |
+| 美术与内容资产 | 分类、家族、基础件、变体、状态、规格和组合关系 |
+| 可借鉴与不确定性 | 我方可研究结构、需要原创的内容、覆盖缺口和下一步 |
 
+## 岗位协作
 
-市场给依据，拆解给结构，制作项目经理把我方意图转成执行合同，Art Director 保证专业美术体系能被团队采用。程序、美术、音频、QA 或未来 Agent 执行者接任务并返回真实交付物；项目经理负责理解、协调和验收追踪。
+| 岗位 | 交付 |
+|---|---|
+| [游戏市场研究总监](https://github.com/NewenergyEric/game-market-intelligence) | 市场证据、竞品范围和经营问题 |
+| 游戏拆解与逆向分析师 | 玩法/架构/资产拆解、BOM、证据和未知 |
+| [游戏制作项目经理](https://github.com/NewenergyEric/game-production-manager) | 将确认后的方向转为 SOW、任务和验收 |
+| [美术总监](https://github.com/NewenergyEric/art-director-skill) | 将美术观察转为规范、家族和样板 |
+
+## 重要边界
+
+REA 可启动或某个 JS fixture 分析成功，不代表 APK、.NET、原生程序或任何商业游戏都能完整逆向。静态字符串不证明服务端实现；资产清单不等于制作工时，更不代表可以再分发原始素材。
+
+仅分析合法可用资料。不绕过 DRM、支付、凭据、访问控制或在线服务；没有授权或来源不明时，输出范围与合规缺口并停止深度分析。
 
 ## 验证与参与
 
@@ -43,6 +51,6 @@ python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/dem
 python -m unittest discover -s tests -v
 ```
 
-[验证摘要](evals/verification.md) 区分已运行路径和未验证范围；[下一步](ROADMAP.md) 提供可以接手的工作。用分支与 PR 提交，附问题、行为变化和验证证据。新数据适配器应附真实访问范围与样例，不把平台候选变成已实现能力。
+REA 原创样例、Darwin prompts、边界反馈和真实验证范围见 [`evals/`](evals/)；同类项目取舍见 [GitHub 参考扫描](references/github-reference-scan.md)。原始目标、分析输出和账号配置应放在使用者的私有工作区。
 
-本仓库使用 MIT；REA 等依赖保留其各自许可证。私人导出、原始应用包、账号配置和分析结果不随仓库发布。
+本仓库使用 MIT；REA 依赖保留其许可证。
