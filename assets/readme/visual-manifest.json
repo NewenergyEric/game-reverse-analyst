@@ -1,5 +1,5 @@
 {
-  "system": "Art Director-aligned role film v2",
+  "system": "Art Director-aligned role film v3",
   "languages": [
     "zh-CN",
     "en"
@@ -8,57 +8,102 @@
     "duration_seconds": 24,
     "source_fps": 30,
     "gif_fps": 20,
-    "beats": [
-      "frame",
-      "register",
-      "trace",
-      "decide",
-      "deliver",
-      "close"
+    "chapter_frames": [
+      0,
+      120,
+      252,
+      384,
+      510,
+      630,
+      720
+    ],
+    "reviewed_frames": [
+      70,
+      218,
+      360,
+      480,
+      600,
+      680
     ]
   },
   "assets": {
-    "hero-zh.mp4": {
-      "dimensions": "1280x720",
+    "assets/readme/hero-zh.mp4": {
+      "bytes": 2053950,
+      "sha256": "ba05950404ca9649114968a19781050372f394739831da2eaeda55b1cca896cc",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 24,
       "fps": 30,
-      "frames": 720,
-      "codec": "H.264",
-      "purpose": "Chinese full-motion showcase"
+      "frames": 720
     },
-    "hero-en.mp4": {
-      "dimensions": "1280x720",
-      "fps": 30,
-      "frames": 720,
-      "codec": "H.264",
-      "purpose": "English full-motion showcase"
-    },
-    "hero-zh.gif": {
-      "dimensions": "800x450",
+    "assets/readme/hero-zh.gif": {
+      "bytes": 5208104,
+      "sha256": "70a126f662523b1a50ec1fd7bcfeb9f5cc785728a245f1e0af5a1c0ee6d5b5b8",
+      "dimensions": [
+        800,
+        450
+      ],
+      "duration_seconds": 24,
       "fps": 20,
       "frames": 480,
-      "duration_seconds": 24
+      "palette_colors": 64
     },
-    "hero-en.gif": {
-      "dimensions": "800x450",
+    "assets/readme/hero-zh.png": {
+      "bytes": 555450,
+      "sha256": "3391e14b48986680c41f5c5dfdcda26f1fdfde5d8f4e08d738d5966c46d82caf",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    "case-studies/2048-open-source/dashboard-zh.png": {
+      "bytes": 197512,
+      "sha256": "93fadff1c2c3b2a734bc0ed2425a69b9ab6a07edf54e2b027ccf7fff18ca98d3",
+      "dimensions": [
+        1600,
+        1040
+      ]
+    },
+    "assets/readme/hero-en.mp4": {
+      "bytes": 2171613,
+      "sha256": "360032f0b3b0e5e03825c2dcff676413999712157957852e68212db9c30d1ef3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 24,
+      "fps": 30,
+      "frames": 720
+    },
+    "assets/readme/hero-en.gif": {
+      "bytes": 5517399,
+      "sha256": "607616267bbd3207b0e85fb6082f38ad34b26ac7888de492b79bbf5fbac60a85",
+      "dimensions": [
+        800,
+        450
+      ],
+      "duration_seconds": 24,
       "fps": 20,
       "frames": 480,
-      "duration_seconds": 24
+      "palette_colors": 64
     },
-    "hero-zh.png": {
-      "dimensions": "1280x720",
-      "purpose": "Chinese reduced-motion fallback"
+    "assets/readme/hero-en.png": {
+      "bytes": 559275,
+      "sha256": "78e732bb4e03c702a7bd6f5de3cc236d455a6e1713ea18da78d923fbb94706d6",
+      "dimensions": [
+        1280,
+        720
+      ]
     },
-    "hero-en.png": {
-      "dimensions": "1280x720",
-      "purpose": "English reduced-motion fallback"
-    },
-    "dashboard-zh.png": {
-      "dimensions": "1280x720",
-      "purpose": "Chinese trace dashboard"
-    },
-    "dashboard-en.png": {
-      "dimensions": "1280x720",
-      "purpose": "English trace dashboard"
+    "case-studies/2048-open-source/dashboard-en.png": {
+      "bytes": 199455,
+      "sha256": "782167c7267f6be7faeb9c2e5a158e7daa4ca6c2a280625d60c41a6691f88c99",
+      "dimensions": [
+        1600,
+        1040
+      ]
     }
   },
   "tokens": {
@@ -68,6 +113,8 @@
     "paper": "#f5f9fb",
     "muted": "#b2cbd7"
   },
-  "provenance": "Original Remotion composition aligned to the public Art Director presentation system: deep-navy stage, mint editorial type, layered working papers, restrained perspective and shared process index.",
-  "content_rule": "Chinese and English films share one case baseline. Role distinction comes from evidence, trace and delivery artifacts rather than unrelated color themes."
+  "reference": "https://github.com/NewenergyEric/art-director-skill",
+  "provenance": "Original role-specific Remotion composition. Font: Noto Sans SC variable subset, SIL OFL. No proprietary fonts or target-game art copied.",
+  "content_rule": "Human prompts, concrete steps and actual tool outputs. Both languages share the same case baseline. Complete boards are rendered independently from animation.",
+  "case_baseline": "case-studies/2048-open-source/public-receipt.json"
 }

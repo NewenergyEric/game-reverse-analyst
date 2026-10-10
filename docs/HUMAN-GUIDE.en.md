@@ -1,31 +1,52 @@
-# Human Guide · Game Reverse Analyst
+# Game Reverse Analyst · Human guide
 
 [中文](HUMAN-GUIDE.md)
 
-## What this role solves
+Start with footage, screenshots or authorized source. Map rules, modules and assets.
 
-With explicit authority, it turns recordings, screenshots, packages, existing projects, or REA evidence into mechanics, architecture, rules, balance, and asset structure. It answers how a target works, what was observed, and what remains unknown. It does not turn protected competitor material into production assets.
+## Bring your materials
 
-## 30-second start
+Give your agent usable materials and the question you want answered.
+Incomplete material is fine to start; missing inputs that affect the next step stay visible.
 
-1. Name the target version, source, authority, scope, and main question.
-2. Ask the agent to read `SKILL.md`, then choose the path:
+## I want to understand the gameplay
 
-   ```text
-   npm ci --ignore-scripts
-   python scripts/rea_bridge.py check
-   python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/demo-analysis
-   ```
+> Use `$game-reverse-analyst`. Review this footage and these screenshots. Map the core loop, state changes and feedback. Cite each observation and list what the materials do not show.
 
-3. Read the evidence index, coverage, and unknowns before the mechanics or architecture view.
-4. Send our implementation scope to the production manager and art families or exemplars to the Art Director.
+Gameplay and experience views, observation references and a list of missing materials. Gameplay observation can start directly from footage.
 
-## What you provide
+## I have authorized source and want the implementation
 
-Target files or project, version, permitted depth, platform/engine clues, and a question list. When authority, target material, or a suitable provider is missing, stop at a scope statement instead of filling gaps by inference.
+> Pin this legally usable 2048 source version. Find the input, merge, score, display and storage modules. Trace “a tile merges only once per move” to its source location.
 
-## What you receive
+A system BOM, module responsibilities and rule locations. Suitable targets can use REA static analysis with retained evidence and receipts.
 
-A five-layer analysis, evidence IDs, hashes and locations, BOM, limitations, validation questions, and handoff questions. The REA CLI is a static-analysis entry point; it does not run the game or promise complete source recovery.
+## I need to hand the findings to the team
 
-Only analyze lawful material. Do not bypass DRM, payment, credentials, access control, or online services. Keep `observed`, `recovered`, `inferred`, and `unknown` distinct.
+> Prepare an analysis package: findings, evidence and remaining uncertainty. List the questions that design, engineering and art can continue. Keep our own design decisions separate.
+
+Role-oriented findings, an evidence index, coverage gaps and further validation questions.
+
+## How to review
+
+Footage observation, source reading and package analysis are selected for the question. Tool coverage depends on the target. The real case validates JavaScript; APK, Unity, .NET and native targets each require their own tools and evidence.
+
+Analyze only legally usable material; do not bypass DRM, payments, credentials or access controls. Static relationships do not prove runtime or server behavior. An asset list is neither a workload estimate nor a redistribution license.
+
+## Outputs and handoff
+
+- **Five-layer analysis:** gameplay, architecture, rules and values, assets, useful structures and unknowns.
+- **Evidence index:** findings tied to target version, file location and input hash.
+- **Role handoff:** what the team can investigate next and what needs more material or validation.
+
+[Market Intelligence](https://github.com/NewenergyEric/game-market-intelligence) brings targets and questions. Analysis supplies structure and evidence. The [Production Manager](https://github.com/NewenergyEric/game-production-manager) organizes confirmed work. [Art Director](https://github.com/NewenergyEric/art-director-skill) develops art observations into original rules and samples.
+
+## Technical entry for your agent
+
+REA is pinned to 6.3.0; see package.json for Node requirements. Seven bridge tests cover invalid evidence, failures, timeouts, input hashes and output isolation.
+
+```sh
+npm ci --ignore-scripts
+python scripts/rea_bridge.py check
+python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/demo-analysis
+```
