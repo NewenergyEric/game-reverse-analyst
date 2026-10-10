@@ -1,5 +1,7 @@
-# 游戏拆解与逆向分析师
+# Game Reverse Analyst
 
-利用观察、REA 和资产工具理解玩法、架构、规则与资产结构，并保留证据和局限。
+[中文](PROJECT.zh.md)
 
-当前项目入口已迁至 [README.md](README.md)，Agent 工作入口为 [SKILL.md](SKILL.md)。本岗位的完成条件及后续实现见 [ROADMAP.md](ROADMAP.md)。
+Understand game systems, content and asset structure.
+
+Start with [README](README.md), use [SKILL.md](SKILL.md) for agent work, and see [ROADMAP](ROADMAP.md) for verified scope and remaining work. The [four-role workflow](docs/WORKFLOW.md) explains handoffs for teams and solo creators.

@@ -1,6 +1,6 @@
 # Agent Guide · game-reverse-analyst
 
-[中文](AGENT-GUIDE.md)
+[中文](AGENT-GUIDE.zh.md)
 
 ## Read order
 
@@ -26,7 +26,7 @@ At minimum include target and scope, five-layer analysis, BOM, evidence index, l
 
 ## Depth-case entry
 
-[Protocol](../references/depth-analysis.md) · [Case](../case-studies/2048-open-source/deep-dive.en.md)
+[Protocol](../references/depth-analysis.md) · [Case](../case-studies/2048-open-source/deep-dive.md)
 
 ```sh
 python scripts/check_2048_case.py --source /path/to/pinned-2048 --out outputs/2048-formulas

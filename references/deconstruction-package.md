@@ -1,17 +1,19 @@
-# 拆解包 → 制作项目经理
+[中文](deconstruction-package.zh.md)
 
-一个包说明一个明确的目标版本与研究问题。可以部分完成，未知必须可见。
+# Deconstruction package → production assessment
 
-| 内容 | 必需信息 |
+A package addresses a specific target version and question. Partial coverage is acceptable when unknowns are explicit.
+
+| Section | Required information |
 |---|---|
-| Target | 游戏/应用版本、平台、输入清单/哈希、观察覆盖、资料来源 |
-| Findings | id、statement、层级（玩法/架构/数值/资产）、observed/recovered/inferred/unknown、证据引用、局限 |
-| Gameplay | 循环、状态迁移、条件/消耗/奖励、边界情况、来源位置 |
-| Architecture | 模块、接口、数据流、资源/网络边界，静态推断单列 |
-| BOM | item_id、家族、基础件/变体、状态、规格、依赖、重复关系、可复用来源、未覆盖内容 |
-| Estimate inputs | 可能的新制/复用/适配项，工种及准备/评审/集成工作；无历史样本不填确定工期 |
-| Questions | 已知缺口、影响的决定/Feature、下一次最小调查 |
+| Target | Version, platform, input inventory/hashes, observed coverage and provenance |
+| Findings | ID, statement, layer, observed/recovered/inferred/unknown, evidence references and limits |
+| Experience | Loop, transitions, conditions/costs/rewards, edge cases and locations |
+| Architecture | Modules, interfaces, data flow, resource/network boundaries; separate static inference |
+| BOM | Item ID, family, base/variant, states, specification, dependencies, duplicates, reuse provenance and gaps |
+| Estimate inputs | Potential new/reused/adapted work; disciplines, preparation, review and integration; no certain schedule without capacity evidence |
+| Questions | Known gap, affected decision/feature and next minimum investigation |
 
-项目经理使用这些输入理解范围并编制我方工作；不要把“竞品观察到 10 项功能”直接当成“我方必须做 10 项”。Art Director 使用资产家族/视觉观察进一步校准专业规则，而非接收竞品文件直接批准生产。
+The manager turns this into our original scope. Ten observed competitor features do not mean we must build all ten. Art Director uses asset families and visual observations to calibrate original rules and samples, not to approve copied competitor files.
 
-技术状态（工具执行成功/失败）、结论状态（观察/推断）、我方决定状态（建议/确认）分别记录。截图能佐证观察，不能证明代码依赖；反编译方法能佐证可读分支，不能证明整个产品体验。
+Record tool outcome, evidence status and our decision status separately. Screenshots support observations, not code dependencies; recovered methods support readable branches, not the entire player experience.

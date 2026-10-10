@@ -1,4 +1,4 @@
 interface:
-  display_name: "游戏拆解与逆向分析师"
-  short_description: "在授权范围内用 REA 和观察证据拆解玩法、架构、规则与资产结构"
-  default_prompt: "请使用 $game-reverse-analyst，先读取 SKILL.md 和人类/Agent 说明，固定目标版本与授权范围，再输出带证据、哈希、局限和岗位交接问题的拆解包。"
+  display_name: "Game Reverse Analyst"
+  short_description: "Understand game systems, content and asset structure."
+  default_prompt: "Use $game-reverse-analyst to examine the supplied game materials and version, explain its systems and asset structure with evidence, and identify implications for our own project."

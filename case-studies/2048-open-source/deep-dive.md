@@ -1,58 +1,58 @@
-# 2048：从一条合并规则，追到代码、数值和资产
+# 2048: follow a merge rule into code, numbers and assets
 
-[English](deep-dive.en.md) · [结构与 REA 原回执](README.md) · [机器可读分析](deep-dive.json) · [资产 BOM](asset-bom.csv) · [复算回执](verification.json)
+[中文](deep-dive.zh.md) · [Structure and original REA receipt](README.md) · [Analysis JSON](deep-dive.json) · [Asset BOM](asset-bom.csv) · [Formula receipt](verification.json)
 
-> 我想做一个滑动合并玩法。它为什么不会一次合成 8？随机生成如何影响节奏？主美到底要做几张图？
+> I am designing a sliding merge game. Why does this move not make an 8? What does the spawn probability mean? How many images does the art team actually need?
 
-本次对同一固定版本做源码阅读、文件哈希核验与公式复算。REA 静态结构回执沿用原案例。**未运行目标游戏；下面的规则示例是源码推导，不能替代运行时测试。**
+This pass reads the same pinned source, verifies file hashes and recomputes formulas. It retains the original REA static-analysis receipt. **The target game was not executed. These source-derived examples still need runtime tests.**
 
-## 代码逻辑：一次输入如何走完
+## Code logic: follow one input
 
-`输入事件 → 终局判断 → 方向向量/遍历顺序 → 找最远空位 → 合并或滑动 → 有移动才生成新块 → 无可行移动则结束 → 保存/渲染`
+`Input → terminal-state guard → direction and traversal → farthest empty cell → merge or slide → spawn only after movement → loss check → persist and render`
 
-从移动方向的远端开始遍历，先清理上一轮的 `mergedFrom`。同值相邻且目标没有 `mergedFrom` 才合并；新块记下来源，避免本轮再次合并。合并后的值累加到分数；合成 2048 标记胜利，是否继续由状态决定。
+Traversal starts at the movement edge. Previous mergedFrom flags are cleared. An equal-value neighbor can merge only if it has no mergedFrom. The new tile records its parents, preventing a second merge in the same move. Its value is added to the score; a 2048 tile sets the win flag, with continuation controlled by state.
 
-| 源码推导的验收输入 | 左移后，不含随机新块 | 分数增量 | 要防住什么 |
+| Source-derived acceptance input | After left move, excluding spawn | Score delta | Boundary |
 |---|---|---|---|
-| 2, 2, 4, 空 | 4, 4, 空, 空 | +4 | 新合成的 4 不应继续合成 8 |
-| 2, 2, 2, 2 | 4, 4, 空, 空 | +8 | 两组各自合并，保持方向顺序 |
-| 无位移输入 | 局面保持 | 0 | 不应多生成一个随机块 |
+| 2, 2, 4, empty | 4, 4, empty, empty | +4 | New 4 must not immediately become 8 |
+| 2, 2, 2, 2 | 4, 4, empty, empty | +8 | Two independent merges in direction order |
+| No displacement | Unchanged | 0 | No extra random spawn |
 
-位置：`game_manager.js:130–190,207–235`。按 N×N 网格概括，N² 个单元每个最远寻路最多 N 步，因此 O(N³) 是宽松上界；原游戏固定 4×4。这是代码分析，不是性能跑分。
+Locations: game_manager.js:130–190,207–235. Generalizing to N×N, scanning N² cells with up to N steps per farthest-cell search gives a loose O(N³) bound. The actual board is fixed at 4×4. This is code analysis, not a benchmark.
 
-## 数值：概率不等于难度结论
+## Numbers: probability does not establish difficulty
 
-| 参数或推导 | 结果 | 适用边界 |
+| Parameter or calculation | Result | Boundary |
 |---|---|---|
-| 新生 2 / 新生 4 | 90% / 10% | 源码阈值，`game_manager.js:69–75` |
-| 每次新块的期望面值 | 0.9×2 + 0.1×4 = **2.2** | 不是平均得分或胜率 |
-| 10 次生成至少出现一个 4 | 1−0.9¹⁰ = **65.13%** | 假设随机抽样独立 |
-| 开局生成 | 2 个块 | 不代表固定值或位置 |
+| Spawn 2 / spawn 4 | 90% / 10% | Source threshold, game_manager.js:69–75 |
+| Expected new tile value | 0.9×2 + 0.1×4 = **2.2** | Not expected score or win rate |
+| At least one 4 in ten spawns | 1−0.9¹⁰ = **65.13%** | Assumes independent draws |
+| Starting tiles | 2 | Values and positions are not fixed |
 
-若要回答“把 4 的概率改成 20% 会更难多少”，下一步需定义玩家策略与随机种子，跑多局比较存活步数、胜率、分数分布；本案例没有这些运行结果。
+To ask how changing the 4 probability to 20% affects difficulty, first define a player policy and random seeds, then compare survival steps, win rates and score distributions across runs. This case contains no such runtime results.
 
-## 美术 BOM：状态、变体和文件分开算
+## Art BOM: separate states, variants and files
 
-| 家族 | 实际拆解 | 对制作的意义 |
+| Family | What the source contains | Production implication |
 |---|---|---|
-| 方块组件 | 2..2048 共 11 个数值样式，加 super；普通/新生/合并状态 | CSS 和文本生成，不应报成 11 张贴图 |
-| 尺寸与动效 | 桌面格宽 106.25 CSS px；移动 100 ms；出现/合并 200 ms、延迟 100 ms | 布局参数与动画规格；移动端另有覆盖 |
-| Clear Sans | 3 字重 × 3 格式 = 9 文件 | 一个字体家族，不是 9 款字体设计 |
-| 平台素材 | 3 张触屏/启动 PNG，1 个 favicon.ico | 与核心玩法资产分列 |
+| Tile component | Eleven value styles (2..2048), plus super; normal/new/merged states | CSS and text, not eleven textures |
+| Layout and motion | Desktop tile width 106.25 CSS px; move 100 ms; appear/pop 200 ms after a 100 ms delay | Layout and animation parameters; mobile overrides remain separate |
+| Clear Sans | Three weights × three formats = nine files | One font family, not nine designs |
+| Platform metadata | Three touch/startup PNGs and one favicon.ico | Separate from gameplay art |
 
-规格证据：`style/main.scss:4–7,22,335–450`、`html_actuator.js:60–83`。文件级 SHA-256 在 deep-dive.json。BOM 没有复制目标图片，也没有把素材清单当作授权或工时。
+Evidence: style/main.scss:4–7,22,335–450 and html_actuator.js:60–83. deep-dive.json records SHA-256 per input. No target art is copied; inventory is neither a reuse license nor an effort estimate.
 
-## 交给下一岗位
+## Handoff
 
-- 程序/QA：实现并验证上面的合并、无位移、存档与终局边界；提供实际测试回执。
-- 数值策划：定义玩家策略后进行概率改动实验，保留种子、样本量与分布。
-- 主美：以可参数化方块组件、数值样式和状态动效建规范；另查移动端布局。
-- 项目经理：把规则、参数、资产规格分别转成任务输入与验收，不复制竞品作为制作基线。
+- Engineering/QA: test the merge, no-op, save and terminal-state boundaries; attach real execution receipts.
+- Systems design: define player policy before probability experiments; retain seeds, sample size and distributions.
+- Art director: specify a parameterized tile component, value styles and state animation; inspect mobile layout separately.
+- PM: turn rules, parameters and asset specifications into versioned inputs and acceptance cases; competitor code is not our approved design baseline.
 
-复现哈希与公式核验（不会执行目标源码）：
+Reproduce input-hash checks and formula calculations without executing the source:
 
 ```sh
 python scripts/check_2048_case.py --source /path/to/pinned-2048 --out outputs/2048-formulas
 ```
 
-固定来源：[js/game_manager.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/game_manager.js) · [js/grid.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/grid.js) · [js/html_actuator.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/html_actuator.js) · [style/main.scss](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/style/main.scss)
+Pinned sources: [js/game_manager.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/game_manager.js) · [js/grid.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/grid.js) · [js/html_actuator.js](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/js/html_actuator.js) · [style/main.scss](https://github.com/gabrielecirulli/2048/blob/478b6ec346e3787f589e4af751378d06ded4cbbc/style/main.scss)
