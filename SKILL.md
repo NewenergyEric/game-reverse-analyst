@@ -1,56 +1,52 @@
 ---
 name: game-reverse-analyst
-description: 在授权范围内把游戏录屏、应用包或工程拆成玩法状态、代码与数据流、算法、数值经济及美术资产 BOM；可调用固定版本 REA 做静态分析，保留版本、证据与验证边界。适用于跨类型竞品研究与技术拆解，不承担完整游戏制作。
+description: Deconstruct game recordings, packages or projects into player loops, content structure, code and data flow, algorithms, numerical rules and an art asset BOM. Use available, authorized evidence and pinned REA static analysis when needed; preserve versions, provenance and coverage limits for competitor study and project assessment.
 ---
 
-# 游戏拆解与逆向分析师
+# Game Reverse Analyst
 
-回答“它如何工作、有哪些构成、观察覆盖到哪里、哪些结论仍不确定”。观察竞品、技术恢复和我方设计取舍分别记录。
+Explain what the competitor does, how its systems and content are structured, and what this implies for our own scope. Record competitor observations, recovered implementation and our design choices separately. Code is one source of evidence; it is not a prerequisite for understanding a game.
 
-## 选择分析路径
+## Choose the evidence path
 
-先确定目标版本、输入类型、研究问题和资料可用范围。录屏/截图可做玩法与美术观察；无需为了普通拆解强行先反编译。应用包和技术问题走 REA；已有工程可直接静态阅读。
+Establish target version, input type, research question and permitted scope. Recordings/screenshots support experience and art analysis. An available project can be read statically. Use REA when an implementation question and a suitable target justify it.
 
-参考 [REA 接入与覆盖](references/rea-integration.md)。Node/npm 符合依赖后，在仓库执行 `npm ci --ignore-scripts` 安装固定版本 CLI，再运行：
+Read [REA integration and coverage](references/rea-integration.md). With compatible Node/npm, run `npm ci --ignore-scripts` in this repository, then:
 
-```text
+```sh
 python scripts/rea_bridge.py check
 python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/merge-analysis
 python scripts/rea_bridge.py inspect-artifact /path/to/game-package --out outputs/package-analysis
 ```
 
-这些入口分析明确给定的本地目标，不执行目标游戏。APK / .NET 路径另见接入说明，依赖未具备就报告缺口，不假装反编译成功。已有可用 REA MCP 时也可沿实际服务器 schema 调用，无需重复安装或改全局配置。
+These commands inspect explicitly supplied local targets without executing the game. APK/.NET prerequisites are separate. Report missing dependencies instead of claiming successful decompilation. An already connected REA MCP can use its advertised schema without reinstalling or changing global configuration.
 
-## 五层拆解
+## Analyze five connected layers
 
-需要追到实现、数值设计或制作工作量时，读 [深度拆解协议](references/depth-analysis.md)。每层输出可复核记录；没有材料的层级标出覆盖缺口，不能用模块数量代替分析深度。
+Read [depth analysis](references/depth-analysis.md) when tracing implementation, numerical design or workload. Produce checkable records for each covered layer and identify missing evidence; module counts do not measure depth.
 
-1. **玩法和体验：** 核心循环、状态、输入、条件、反馈、成长、经济与内容节奏；每项附观察位置/版本。
-2. **技术架构：** 入口、模块、调用、数据与存储、资源加载、引擎/原生边界、网络声明。静态发现的请求或字符串不证明服务端实现。
-3. **数值和规则：** 读取配置/函数与使用位置，列适用输入、未知分支。用实际允许的验证才能将假设升级为已验证；不由一次反编译推导完整经济系统。
-4. **美术及内容资产：** 分类、家族、基础件/变体、状态、规格、绑定、重复文件和组合关系；REA 与 UnityPy/AssetRipper 等工具按目标互补。
-5. **可借鉴内容与不确定性：** 结构思路、我方可复用资产、需要原创的新制项、覆盖缺口与下一次调查。
+1. **Player experience:** loop, states, inputs, conditions, feedback, progression, economy and content cadence; cite the observed version and location.
+2. **Architecture and logic:** entry points, modules, calls, data/storage, loading, engine/native boundaries and declared network interactions. Static URLs or requests do not prove server implementation.
+3. **Algorithms and numerical design:** configuration/functions and use sites, applicable inputs, equations, unknown branches and validation methods. One recovered function does not reveal the full economy.
+4. **Art and content BOM:** categories, families, base items/variants, states, specifications, bindings, duplicate files and composition. REA and format-specific tools such as UnityPy/AssetRipper complement one another where supported.
+5. **Implications for our project:** useful structural ideas, our reusable assets, original work required, coverage gaps and next tests. Resource counts need production assumptions before becoming estimates.
 
-每条结论标 observed / recovered / inferred / unknown，附证据 ID、文件哈希与具体位置。 recovered 不表示恢复了原始完整源码。资源清单既不等于美术制作工作量，也不代表可以再分发素材。
+Label claims `observed / recovered / inferred / unknown`, with evidence IDs, hashes and specific locations. Recovered output is not necessarily original complete source. An asset inventory does not establish reuse rights or person-days.
 
-## 输出和交接
+## Outputs and handoff
 
-输出 [拆解包格式](references/deconstruction-package.md)：目标与范围、玩法/架构/资产视图、BOM、证据、局限、待验证项与给项目经理的问题。保留 REA 原结果在私人输出目录；公开仓库只放原创测试样例与经过处理的验证摘要。
+Use the [deconstruction package](references/deconstruction-package.md): scope, system/experience/asset views, BOM, evidence, limits, open tests and questions for production assessment. Keep raw REA output private; public examples must be original or independently shareable and suitably summarized.
 
-## 检查点与失败分支
+## Failure paths and limits
 
-🔴 **CHECKPOINT · 授权与深度分析**：没有合法授权、目标版本或合适提供方时，先停在范围说明；不得用猜测替代深度分析。
+Use authorized, legally available material and a known version. When the target or provider cannot support a claim, preserve the scope and gap rather than guessing.
 
-- 如果 `npm ci`、REA `check` 或目标分析失败 → 保留错误回执，转为录屏/截图/已有工程的静态路径，并明确覆盖下降。
-- 如果目标类型不被当前提供方支持 → 报告所需工具与未验证项，不强行换命令冒充成功。
-- 如果只得到字符串、导入或请求线索 → 标为 `inferred`，不写成服务端实现。
-- 如果证据 ID、哈希或位置缺失 → 结论保持 `unknown`，不进入我方制作基线。
-- 如果输出目录已存在 → 使用新目录；不覆盖既有分析快照。
+- Failed installation, `check` or analysis: keep the error receipt and use an available recording, screenshot or project path with reduced coverage.
+- Unsupported format/provider: state required tools and unverified coverage; a different command is not proof of success.
+- Strings/imports/request clues only: label inference, not server implementation.
+- Missing evidence ID/hash/location: keep the claim unverified and out of the production baseline.
+- Existing output directory: create a new snapshot instead of overwriting the previous analysis.
 
-## 反例黑名单
+Do not bypass access controls, DRM or payment, extract credentials, interfere with online services, copy competitor assets as our deliverables, equate file counts with effort, or infer universal target support from CLI startup.
 
-不要绕过 DRM、支付、凭据、访问控制或在线服务；不要把静态恢复写成完整源码；不要把竞品资产直接复制为我方交付物；不要把文件数量写成制作工时；不要因为 REA CLI 能启动就声称任意商业游戏都能完整逆向。
-
-将我方需求与确认决定交给游戏制作项目经理编制 SOW/WBS；美术风格与资产家族交给 Art Director 建规范。分析师可提出原型验证任务，但不擅自将竞品实现变成我方已批准需求。
-
-执行者可以是人或后续 Agent，分析标准一致。仅针对已有授权/合法可用的资料；本 Skill 不提供绕过授权、提取凭据、绕过支付/DRM 或干扰在线服务的流程。
+The Production Manager turns our confirmed requirements into scope, estimates and work packages. Art Director uses observed families and visual principles to guide original standards and representative assets. Prototype suggestions remain proposals until adopted. See the [four-role workflow](docs/WORKFLOW.md).

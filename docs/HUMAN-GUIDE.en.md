@@ -1,3 +1,5 @@
+[中文](HUMAN-GUIDE.zh.md)
+
 # Game Reverse Analyst · Human guide
 
 Start with how the game works, then connect gameplay states, code and data flow, algorithm boundaries, numeric parameters, asset families and presentation. Footage supports observation; authorized source or packages enable deeper analysis where tools provide coverage.
@@ -24,6 +26,6 @@ Count CSS components, value variants, logical states and files separately, with 
 
 The target game was not executed. Source inference, formula calculation and runtime verification are separate. A JavaScript case does not establish support for every APK, Unity or native game. Footage cannot prove server algorithms; unsupported layers remain unknown.
 
-[Reproducible case](../case-studies/2048-open-source/deep-dive.en.md)
+[Reproducible case](../case-studies/2048-open-source/deep-dive.md)
 
-[Agent guide](AGENT-GUIDE.en.md)
+[Agent guide](AGENT-GUIDE.md)

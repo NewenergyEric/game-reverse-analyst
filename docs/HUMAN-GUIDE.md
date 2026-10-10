@@ -1,29 +1,31 @@
-# 游戏拆解与逆向分析师 · 使用说明
+[中文](HUMAN-GUIDE.zh.md)
 
-从“它为什么这样运转”出发，连接玩法状态、代码与数据流、算法边界、数值参数、资产家族和表现层。录屏先回答可观察的问题；合法可用的工程或应用包再按覆盖能力深入。
+# Game Reverse Analyst · Human guide
 
-## 追到代码和算法
+Start with how the game works, then connect gameplay states, code and data flow, algorithm boundaries, numeric parameters, asset families and presentation. Footage supports observation; authorized source or packages enable deeper analysis where tools provide coverage.
 
-> 这个 2048 为什么一次左移不能直接合成 8？给我调用路径、状态变化和可复核位置。
+## Trace code and algorithms
 
-得到输入到存档的实现链、合并边界、源码版本与对应测试问题。
+> Why can this 2048 left move not immediately make an 8? Show the call path, state changes and source locations.
 
-## 核对数值设计
+Receive the input-to-save chain, merge boundaries, pinned source version and specific test questions.
 
-> 新生 4 的概率改成 20%，会更难多少？先解释现有参数，告诉我哪些能算、哪些需要实验。
+## Inspect numeric design
 
-现有 90/10 概率与期望面值可复算；难度、胜率和分数分布需要玩家策略、种子与实际运行。
+> Would a 20% spawn chance for 4 make the game harder? Explain current parameters and what needs an experiment.
 
-## 拆出美术和内容 BOM
+The 90/10 probability and expected tile value can be recalculated. Difficulty and win/score distributions require a player policy, seeds and real runs.
 
-> 11 种方块数值需要 11 张图吗？整理组件、状态、动效、字体与平台素材。
+## Build an art and content BOM
 
-按 CSS 组件、数值变体、逻辑状态与文件分别计数，并提供原位置和制作影响。
+> Do eleven tile values need eleven images? Separate components, states, motion, fonts and platform metadata.
 
-## 复核与交接
+Count CSS components, value variants, logical states and files separately, with source locations and production implications.
 
-本案例没有运行目标游戏。源码推导、公式复算、运行验证分开标记。REA 的 JavaScript 案例不代表任意 APK、Unity 或原生游戏都已验证可拆解；录屏不能证明服务端算法。没有材料的数值、代码或资产层级保留未知。
+## Review and handoff
 
-[可复现案例](../case-studies/2048-open-source/deep-dive.md)
+The target game was not executed. Source inference, formula calculation and runtime verification are separate. A JavaScript case does not establish support for every APK, Unity or native game. Footage cannot prove server algorithms; unsupported layers remain unknown.
+
+[Reproducible case](../case-studies/2048-open-source/deep-dive.md)
 
 [Agent guide](AGENT-GUIDE.md)

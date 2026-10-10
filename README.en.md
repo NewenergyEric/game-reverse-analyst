@@ -1,4 +1,4 @@
-[中文](README.md)
+[中文](README.zh.md)
 
 # Game Reverse Analyst
 
@@ -43,7 +43,7 @@ Count CSS components, value variants, logical states and files separately, with 
 
 **Real open-source case: 2048 at commit 478b6ec.** Extends the existing REA 6.3.0 static receipt with code flow, merge algorithm, spawn probabilities, formula calculations and an asset BOM. Hashes verified for 18 input files.
 
-[Full analysis and downloadable records](case-studies/2048-open-source/deep-dive.en.md)
+[Full analysis and downloadable records](case-studies/2048-open-source/deep-dive.md)
 
 [![Game Reverse Analyst](case-studies/2048-open-source/dashboard-en.png?v=depth-v4)](case-studies/2048-open-source/dashboard-en.png)
 
@@ -60,7 +60,7 @@ The target game was not executed. Source inference, formula calculation and runt
 
 Core helpers use Python 3.10+ and the standard library. Remotion is optional presentation tooling.
 
-[Human guide](docs/HUMAN-GUIDE.en.md) · [Agent guide](docs/AGENT-GUIDE.en.md) · [SKILL.md](SKILL.md) · [Tests and review](evals/) · [Motion source](motion/README.md)
+[Human guide](docs/HUMAN-GUIDE.md) · [Agent guide](docs/AGENT-GUIDE.md) · [SKILL.md](SKILL.md) · [Tests and review](evals/) · [Motion source](motion/README.md)
 
 ```sh
 python -m unittest discover -s tests -v
@@ -70,3 +70,11 @@ python scripts/check_presentation.py
 </details>
 
 [MIT License](LICENSE) · Made by Eric and Agents.
+
+## Four roles. One game worth making.
+
+For a solo creator these are four hats; for a team they are connected responsibilities. Explore what is worth making, what competitors do, the resources it requires, and the original art that defines it.
+
+[How the roles exchange evidence, scope and visual assets](docs/WORKFLOW.md) · [Art Director](https://github.com/NewenergyEric/art-director-skill)
+
+![Market intelligence → competitor analysis → production assessment → original art direction; prototype and cost feedback revise earlier decisions.](assets/readme/workflow-en.png)

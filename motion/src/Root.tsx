@@ -13,7 +13,7 @@ const Film: React.FC<{role: Role; lang: Lang}> = ({role, lang}) => (
 
 export const Root: React.FC = () => {
   const roles: Role[] = ['reverse'];
-  const langs: Lang[] = ['zh', 'en'];
+  const langs: Lang[] = ['en', 'zh'];
 
   return (
     <>
