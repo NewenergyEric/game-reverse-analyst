@@ -1,5 +1,7 @@
 # Open-Source 2048 — Evidence-Backed Analysis
 
+[Continue: code, algorithms, numbers and art BOM](deep-dive.en.md)
+
 [中文](README.md) · [Public evidence receipt](public-receipt.json) · [Chinese dashboard](dashboard-zh.png)
 
 [![Open-source 2048 analysis dashboard](dashboard-en.png)](dashboard-en.png)

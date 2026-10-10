@@ -4,22 +4,24 @@ Open-source 2048 · MIT · static analysis
 
 ## 1. How does this game work?
 
-Give your agent usable materials and the question you want answered.
+Follow a concrete question to reviewable implementation.
 
-## 2. Make the system easy to follow.
+## 2. From input to save. Every step has a place.
 
-Identify the modules behind input, rules, grid, display and storage.
+Connect input, rules, grid, display and storage.
 
 ## 3. Why does the merge stop here?
 
 Follow a visible rule back to its implementation.
 
-## 4. Explain the finding. Show the evidence.
+## 4. Numbers and assets. Show the derivation.
 
-File locations, version and receipts let another teammate review the work.
+Recompute formulas. Count states separately from image files.
 
-## 5. Pass the structure to the next teammate.
+## 5. Evidence for every production discipline.
 
-Designers get rules, engineers get modules, artists get asset observations and gaps.
+Hand off code locations, formulas, asset BOM and open tests.
 
-Rule illustration from pinned source. The target game was not executed.
+Public case artifacts; original REA receipt retained. Target not executed.
+
+[Case](../../case-studies/2048-open-source/deep-dive.en.md)

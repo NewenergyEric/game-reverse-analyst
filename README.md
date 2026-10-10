@@ -4,87 +4,69 @@
 
 ### 看懂玩法，找到实现依据。
 
-**从“看起来是这样”，走到“依据在这里”。**
+从“它为什么这样运转”出发，连接玩法状态、代码与数据流、算法边界、数值参数、资产家族和表现层。录屏先回答可观察的问题；合法可用的工程或应用包再按覆盖能力深入。
 
-把录屏、截图、合法可用的应用包或工程交给 Agent。它按问题拆解玩法、模块、规则和资产关系，把发现连到版本、文件位置与证据，让策划、程序和美术能继续研究。
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-zh.png?v=depth-v4">
+  <img src="assets/readme/hero-zh.webp?v=depth-v4" width="100%" alt="沿着一条玩法规则，拆到代码、算法、数值与美术资产。">
+</picture>
 
-<a href="assets/readme/hero-zh.mp4"><picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-zh.png?v=workflow-v3">
-  <img src="assets/readme/hero-zh.gif?v=workflow-v3" width="100%" alt="从录屏、截图或授权工程开始，拆清规则、模块和资产关系。">
-</picture></a>
-
-[24 秒，走完一次完整工作 · 播放 MP4](assets/readme/hero-zh.mp4) · [文字版](assets/readme/transcript-zh.md)
+[播放完整介绍 · 24 秒 MP4](assets/readme/hero-zh.mp4) · [GIF](assets/readme/hero-zh.gif) · [文字版](assets/readme/transcript-zh.md)
 
 ## 装好，然后直接说
-
-在支持 Agent Skills 的工具中安装，例如 Codex、Claude Code 或 Cursor：
 
 ```sh
 npx skills add https://github.com/NewenergyEric/game-reverse-analyst
 ```
 
-把资料放进 Agent 能读取的文件夹，再说出要解决的问题。文件整理和命令由 Agent 处理。
+在支持 Agent Skills 的工具中安装，例如 Codex、Claude Code、Cursor；将资料放进 Agent 能读取的位置，再描述问题。
 
-### 先看玩法，不知道从哪里拆
+### 追到代码和算法
 
-> 使用 `$game-reverse-analyst`。这是游戏录屏和截图，先帮我梳理核心循环、状态变化和反馈。每条观察标明位置，把没有看见的部分列成问题。
+> 这个 2048 为什么一次左移不能直接合成 8？给我调用路径、状态变化和可复核位置。
 
-**你会得到：** 玩法与体验视图、观察依据和待补材料。普通玩法观察可以直接从录屏开始。
+得到输入到存档的实现链、合并边界、源码版本与对应测试问题。
 
-### 我有授权工程，想追到实现
+### 核对数值设计
 
-> 这是合法可用的 2048 工程。固定当前版本，找出输入、合并、计分、表现和存储模块，再把“一个方块一次只合并一次”追到源码位置。
+> 新生 4 的概率改成 20%，会更难多少？先解释现有参数，告诉我哪些能算、哪些需要实验。
 
-**你会得到：** 系统 BOM、模块职责和规则位置；适合的目标由 REA 做静态分析，并保留分析证据与回执。
+现有 90/10 概率与期望面值可复算；难度、胜率和分数分布需要玩家策略、种子与实际运行。
 
-### 把拆解结果交给策划、程序和主美
+### 拆出美术和内容 BOM
 
-> 整理一份拆解包：我们已发现什么、依据在哪里、还有什么不能确定。分别列出策划、程序和主美可以继续处理的问题，不替我们批准竞品方案。
+> 11 种方块数值需要 11 张图吗？整理组件、状态、动效、字体与平台素材。
 
-**你会得到：** 按岗位可阅读的发现、证据索引、覆盖缺口与后续验证问题。
+按 CSS 组件、数值变体、逻辑状态与文件分别计数，并提供原位置和制作影响。
+
+## 看一个具体案例
+
+**真实开源案例：2048，固定 commit 478b6ec。** 在已有 REA 6.3.0 静态回执之上，补充代码链、合并算法、生成概率、公式复算与资产 BOM；18 个输入文件的哈希已核验。
+
+[完整分析与可下载底稿](case-studies/2048-open-source/deep-dive.md)
+
+[![游戏拆解与逆向分析师](case-studies/2048-open-source/dashboard-zh.png?v=depth-v4)](case-studies/2048-open-source/dashboard-zh.png)
 
 ## 最后交给团队什么
 
-- **五层拆解：** 玩法、架构、规则与数值、资产结构、可借鉴点与未知。
-- **证据索引：** 发现关联目标版本、文件位置和输入哈希。
-- **岗位交接：** 哪些内容可以继续研究，哪些需要更多材料或实际验证。
-
-## 看一次真实拆解：2048 的合并规则
-
-[2048 开源案例](case-studies/2048-open-source/README.md)固定到 MIT 授权的 commit `478b6ec`，用 REA 6.3.0 静态分析 10 个 JS 模块，记录 23 个节点和 33 条关系。
-
-一个具体发现是 `!next.mergedFrom` 如何约束同次移动中的再次合并。规则位置、版本和完整哈希都在[公开回执](case-studies/2048-open-source/public-receipt.json)中。影片是源码规则示意，目标游戏没有被运行。
-
-[![看一次真实拆解：2048 的合并规则](case-studies/2048-open-source/dashboard-zh.png?v=workflow-v3)](case-studies/2048-open-source/dashboard-zh.png)
-
-## 和其他岗位一起用
-
-[市场研究](https://github.com/NewenergyEric/game-market-intelligence)带来竞品与问题；分析师给结构与证据；[项目经理](https://github.com/NewenergyEric/game-production-manager)组织我方已确认工作；[Art Director](https://github.com/NewenergyEric/art-director-skill)将美术观察发展成我方规范与样板。
+- 代码、规则与数值 — `deep-dive.json`
+- 美术资产与计数依据 — `asset-bom.csv`
+- 输入哈希与公式复算 — `verification.json`
 
 <details>
-<summary><strong>安装要求、技术文档与验证</strong></summary>
+<summary>能力边界、说明书与验证</summary>
 
-REA 固定为 6.3.0；Node 要求见 package.json。Python 桥接层有 7 项测试，覆盖无效证据、失败回执、超时、输入哈希与输出隔离。
+本案例没有运行目标游戏。源码推导、公式复算、运行验证分开标记。REA 的 JavaScript 案例不代表任意 APK、Unity 或原生游戏都已验证可拆解；录屏不能证明服务端算法。没有材料的数值、代码或资产层级保留未知。
 
-[人类详细说明](docs/HUMAN-GUIDE.md) · [Agent 调用说明](docs/AGENT-GUIDE.md) · [Skill 入口](SKILL.md) · [验证与审查](evals/)
+核心工具使用 Python 3.10+ 标准库；动画源码是可选的 Remotion 工程。
+
+[人类说明书](docs/HUMAN-GUIDE.md) · [Agent guide](docs/AGENT-GUIDE.md) · [SKILL.md](SKILL.md) · [Tests and review](evals/) · [Motion source](motion/README.md)
 
 ```sh
-npm ci --ignore-scripts
-python scripts/rea_bridge.py check
-python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/demo-analysis
+python -m unittest discover -s tests -v
+python scripts/check_presentation.py
 ```
 
-[CI](https://github.com/NewenergyEric/game-reverse-analyst/actions) · [Motion source](motion/README.md)
-
 </details>
 
-<details>
-<summary><strong>能力边界与资料使用</strong></summary>
-
-录屏观察、工程静态阅读与应用包分析按问题选择，工具覆盖随目标变化。当前真实案例验证了 JavaScript 路径；APK、Unity、.NET 和原生程序需要各自的工具与证据。
-
-仅分析合法可用的材料，不绕过 DRM、支付、凭据或访问控制。静态关系不证明运行时或服务端行为；素材清单不等于制作工时或再分发许可。
-
-</details>
-
-[MIT License](LICENSE) · 由 Eric 与 Agents 一起制作。
+[MIT License](LICENSE) · Made by Eric and Agents.

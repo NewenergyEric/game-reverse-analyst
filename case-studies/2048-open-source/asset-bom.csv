@@ -1,0 +1,5 @@
+﻿id,family,quantity_basis,representation,evidence,production_implication
+A-TILE,Tile UI / 方块组件,11 value styles + super; normal/new/merged,CSS + text,style/main.scss:335-450; js/html_actuator.js:60-83,"Logical variants, not raster files / 逻辑变体非图片数量"
+A-FONT,Clear Sans,3 weights × 3 formats = 9 files,EOT / SVG / WOFF,style/fonts/,"One family, three weights / 一个字体家族三种字重"
+A-META,Touch/startup metadata / 触屏启动素材,3 PNG files,PNG,meta/,"Platform metadata, not gameplay pieces / 非玩法资产"
+A-ICON,Browser icon / 浏览器图标,1 ICO file,ICO,favicon.ico,One file; embedded sizes not counted / 内嵌尺寸未拆计
