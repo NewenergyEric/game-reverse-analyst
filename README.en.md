@@ -1,61 +1,90 @@
-# Game Reverse Analyst
-
 [中文](README.md)
 
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-en.png">
-  <img src="assets/readme/hero-en.gif" alt="Game Reverse Analyst: trace the system and mark the unknowns." width="1280">
-</picture>
+# Game Reverse Analyst
 
-With explicit authority, use observation, REA, and appropriate asset tools to understand mechanics, architecture, rules, balance, and asset structure. Produce an analysis package with evidence, hashes, coverage, and limitations for game designers, engineers, Art Directors, and production managers.
+### Understand the play. Trace the implementation.
 
-[30-second start](docs/HUMAN-GUIDE.en.md) · [Agent guide](docs/AGENT-GUIDE.en.md) · [Read the canonical skill](SKILL.md) · [REA integration](references/rea-integration.md) · [Real case](case-studies/2048-open-source/README.en.md) · [Darwin review](evals/darwin-review.md)
+**Move from “it seems to work this way” to “the evidence is here.”**
 
-![Validate](https://github.com/NewenergyEric/game-reverse-analyst/actions/workflows/validate.yml/badge.svg) ![MIT](https://img.shields.io/badge/license-MIT-151715.svg) ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-225d4b.svg)
+Give your agent footage, screenshots or legally usable packages and source. It maps gameplay, modules, rules and assets, then ties findings to a version, file location and evidence so designers, engineers and artists can continue the work.
 
-## Completed real case
+<a href="assets/readme/hero-en.mp4"><picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-en.png?v=workflow-v3">
+  <img src="assets/readme/hero-en.gif?v=workflow-v3" width="100%" alt="Start with footage, screenshots or authorized source. Map rules, modules and assets.">
+</picture></a>
 
-The [open-source 2048 analysis](case-studies/2048-open-source/README.en.md) pins an exact commit and statically analyzes ten JavaScript modules with REA 6.3.0. The target was never executed. The public case includes architecture, rule locations, input hashes, an evidence ID, and limitations; the complete 5.8 MB analysis record remains local.
+[24 seconds through one complete workflow · Watch MP4](assets/readme/hero-en.mp4) · [Transcript](assets/readme/transcript-en.md)
 
-[![Open-source 2048 analysis dashboard](case-studies/2048-open-source/dashboard-en.png)](case-studies/2048-open-source/dashboard-en.png)
+## Install, then ask your agent
 
-## Start now
+Install in an Agent Skills-compatible tool, such as Codex, Claude Code or Cursor:
 
-```text
-git clone https://github.com/NewenergyEric/game-reverse-analyst.git
-cd game-reverse-analyst
+```sh
+npx skills add https://github.com/NewenergyEric/game-reverse-analyst
+```
+
+Put the materials where your agent can read them, then describe the problem. Your agent handles file organization and commands.
+
+### I want to understand the gameplay
+
+> Use `$game-reverse-analyst`. Review this footage and these screenshots. Map the core loop, state changes and feedback. Cite each observation and list what the materials do not show.
+
+**You get:** Gameplay and experience views, observation references and a list of missing materials. Gameplay observation can start directly from footage.
+
+### I have authorized source and want the implementation
+
+> Pin this legally usable 2048 source version. Find the input, merge, score, display and storage modules. Trace “a tile merges only once per move” to its source location.
+
+**You get:** A system BOM, module responsibilities and rule locations. Suitable targets can use REA static analysis with retained evidence and receipts.
+
+### I need to hand the findings to the team
+
+> Prepare an analysis package: findings, evidence and remaining uncertainty. List the questions that design, engineering and art can continue. Keep our own design decisions separate.
+
+**You get:** Role-oriented findings, an evidence index, coverage gaps and further validation questions.
+
+## What the team receives
+
+- **Five-layer analysis:** gameplay, architecture, rules and values, assets, useful structures and unknowns.
+- **Evidence index:** findings tied to target version, file location and input hash.
+- **Role handoff:** what the team can investigate next and what needs more material or validation.
+
+## See a real analysis: the 2048 merge rule
+
+The [open-source 2048 case](case-studies/2048-open-source/README.en.md) pins MIT-licensed commit `478b6ec`. REA 6.3.0 statically analyzed 10 JavaScript modules and recorded 23 nodes with 33 relationships.
+
+A concrete finding explains how `!next.mergedFrom` prevents another merge in the same move. Locations, version and full hashes are in the [public receipt](case-studies/2048-open-source/public-receipt.json). The film illustrates a source rule; the target game was not executed.
+
+[![See a real analysis: the 2048 merge rule](case-studies/2048-open-source/dashboard-en.png?v=workflow-v3)](case-studies/2048-open-source/dashboard-en.png)
+
+## Work with the other roles
+
+[Market Intelligence](https://github.com/NewenergyEric/game-market-intelligence) brings targets and questions. Analysis supplies structure and evidence. The [Production Manager](https://github.com/NewenergyEric/game-production-manager) organizes confirmed work. [Art Director](https://github.com/NewenergyEric/art-director-skill) develops art observations into original rules and samples.
+
+<details>
+<summary><strong>Requirements, technical docs and validation</strong></summary>
+
+REA is pinned to 6.3.0; see package.json for Node requirements. Seven bridge tests cover invalid evidence, failures, timeouts, input hashes and output isolation.
+
+[Human guide](docs/HUMAN-GUIDE.en.md) · [Agent guide](docs/AGENT-GUIDE.en.md) · [Skill entry](SKILL.md) · [Validation and review](evals/)
+
+```sh
 npm ci --ignore-scripts
 python scripts/rea_bridge.py check
 python scripts/rea_bridge.py analyze-js examples/merge-fixture --out outputs/demo-analysis
 ```
 
-Ask an agent with GitHub or local-file access to read `SKILL.md` first and freeze the target version, authority, scope, and research question. REA is pinned in `package-lock.json`; see `package.json` for the Node requirement.
+[CI](https://github.com/NewenergyEric/game-reverse-analyst/actions) · [Motion source](motion/README.md)
 
-## Five analysis layers
+</details>
 
-| Layer | Output |
-|---|---|
-| Mechanics and experience | Core loop, input, state, feedback, progression, and content cadence |
-| Technical architecture | Modules, calls, data, resource loading, engine/native boundaries, and network clues |
-| Balance and rules | Configuration, functions, applicable inputs, unknown branches, and validation paths |
-| Art and content assets | Categories, families, bases, variants, states, specifications, and composition |
-| Transferable structure and uncertainty | Structures we can study, content that must be original, coverage gaps, and next steps |
+<details>
+<summary><strong>Capability boundaries and material use</strong></summary>
 
-## Role handoffs
+Footage observation, source reading and package analysis are selected for the question. Tool coverage depends on the target. The real case validates JavaScript; APK, Unity, .NET and native targets each require their own tools and evidence.
 
-| Role | Delivery |
-|---|---|
-| [Game Market Intelligence Director](https://github.com/NewenergyEric/game-market-intelligence) | Market evidence, competitor scope, and business questions |
-| Game Reverse Analyst | Mechanics, architecture, asset breakdown, BOM, evidence, and unknowns |
-| [Game Production Manager](https://github.com/NewenergyEric/game-production-manager) | Turn confirmed direction into SOW, tasks, and acceptance |
-| [Art Director](https://github.com/NewenergyEric/art-director-skill) | Turn art observations into standards, families, and exemplars |
+Analyze only legally usable material; do not bypass DRM, payments, credentials or access controls. Static relationships do not prove runtime or server behavior. An asset list is neither a workload estimate nor a redistribution license.
 
-## Boundaries
+</details>
 
-A successful REA startup or JavaScript fixture analysis does not prove complete analysis of an APK, .NET or native program, or any commercial game. Static strings do not prove server implementation. An asset inventory is not a production estimate and does not grant redistribution rights.
-
-Analyze only material you are authorized to use. Do not bypass DRM, payments, credentials, access controls, or online services. When authority or provenance is unclear, document the gap and stop deeper analysis.
-
-Run `python -m unittest discover -s tests -v` to validate the bridge. Original fixtures, Darwin prompts, and verified scope live in [`evals/`](evals/); project comparisons are in the [GitHub reference scan](references/github-reference-scan.md). Raw targets, full analysis outputs, and credentials stay in the user's private workspace.
-
-MIT licensed. REA dependencies and case-study source retain their own licenses.
+[MIT License](LICENSE) · Made by Eric and Agents.
