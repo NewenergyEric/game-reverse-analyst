@@ -29,3 +29,11 @@
 ## 不要做
 
 不要把静态发现写成完整源码；不要把竞品资产直接复制为我方生产内容；不要绕过 DRM、支付、凭据或在线服务；不要把 REA 能启动写成任何商业游戏都能完整逆向。
+
+## 深度案例入口
+
+[Protocol](../references/depth-analysis.md) · [Case](../case-studies/2048-open-source/deep-dive.md)
+
+```sh
+python scripts/check_2048_case.py --source /path/to/pinned-2048 --out outputs/2048-formulas
+```

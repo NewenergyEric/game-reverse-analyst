@@ -1,0 +1,17 @@
+{
+  "case_id": "2048-depth-478b6ec",
+  "verification": "pinned input hashes and formula recomputation",
+  "target_executed": false,
+  "runtime_behavior_verified": false,
+  "inputs_verified": 18,
+  "calculations": {
+    "spawn_expected_tile_value": 2.2,
+    "at_least_one_4_in_10_spawns": 0.6513215599,
+    "desktop_tile_width_css_px": 106.25
+  },
+  "assumptions": [
+    "The ten spawn draws are independent with the source probability.",
+    "Expected tile value is not expected score or win probability.",
+    "Desktop Sass defaults; mobile overrides are separate."
+  ]
+}

@@ -23,3 +23,11 @@ Read `SKILL.md`, then `references/rea-integration.md` and `references/deconstruc
 - Evidence cannot be located: keep the finding `unknown` and out of the production baseline.
 
 At minimum include target and scope, five-layer analysis, BOM, evidence index, limitations, next validation, and handoff questions. Never bypass controls, copy competitor assets into production, present static recovery as complete source, or claim universal reverse-engineering coverage.
+
+## Depth-case entry
+
+[Protocol](../references/depth-analysis.md) · [Case](../case-studies/2048-open-source/deep-dive.en.md)
+
+```sh
+python scripts/check_2048_case.py --source /path/to/pinned-2048 --out outputs/2048-formulas
+```
