@@ -7,6 +7,8 @@
   <img src="assets/readme/hero-en.gif" alt="Game Reverse Analyst: trace the system and mark the unknowns." width="1280">
 </picture>
 
+[▶ Watch the 24-second MP4](assets/readme/hero-en.mp4) · [中文 MP4](assets/readme/hero-zh.mp4)
+
 With explicit authority, use observation, REA, and appropriate asset tools to understand mechanics, architecture, rules, balance, and asset structure. Produce an analysis package with evidence, hashes, coverage, and limitations for game designers, engineers, Art Directors, and production managers.
 
 [30-second start](docs/HUMAN-GUIDE.en.md) · [Agent guide](docs/AGENT-GUIDE.en.md) · [Read the canonical skill](SKILL.md) · [REA integration](references/rea-integration.md) · [Real case](case-studies/2048-open-source/README.en.md) · [Darwin review](evals/darwin-review.md)

@@ -7,6 +7,8 @@
   <img src="assets/readme/hero-zh.gif" alt="游戏拆解与逆向分析师：拆开系统，标出未知。" width="1280">
 </picture>
 
+[▶ 观看 24 秒 MP4](assets/readme/hero-zh.mp4) · [English MP4](assets/readme/hero-en.mp4)
+
 在拥有授权的前提下，用观察、REA 和适配的资产工具理解游戏的玩法、架构、规则、数值和资产结构。输出带证据、哈希、覆盖范围和局限的拆解包，供策划、程序、Art Director 和项目经理继续工作。
 
 [30 秒开始](docs/HUMAN-GUIDE.md) · [Agent 调用说明](docs/AGENT-GUIDE.md) · [读取 Skill](SKILL.md) · [REA 接入](references/rea-integration.md) · [真实案例](case-studies/2048-open-source/README.md) · [Darwin 审查](evals/darwin-review.md)
