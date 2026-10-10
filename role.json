@@ -1,0 +1,8 @@
+{
+  "schema_version": "0.1",
+  "skill": "game-reverse-analyst",
+  "role_zh": "游戏拆解与逆向分析师",
+  "role_en": "Game Reverse Analyst",
+  "purpose": "利用观察、REA 和资产工具理解玩法、架构、规则与资产结构，并保留证据和局限。",
+  "version": "0.1.0"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "game-reverse-analyst",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned REA CLI dependency for a game reverse analyst skill",
+  "engines": {"node": "^22.19.0 || ^24.11.0 || >=26.0.0"},
+  "dependencies": {"rea-agents": "6.3.0"}
+}

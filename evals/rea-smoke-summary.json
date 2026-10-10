@@ -1,0 +1,45 @@
+{
+  "checked_on": "2026-10-10",
+  "rea_version": "6.3.0",
+  "node_version": "24.13.0",
+  "operation": "analyze_javascript_application",
+  "predicate_type": "rea.javascript-application-analysis",
+  "modules": [
+    "order.js",
+    "index.js",
+    "merge.js"
+  ],
+  "graph_nodes": 13,
+  "graph_edges": 17,
+  "target_executed": false,
+  "status": "succeeded",
+  "input_files": [
+    {
+      "path": "index.js",
+      "bytes": 286,
+      "sha256": "c816b752bc40fa4d47cd4105b8747a5d1c39cd599a1d24a3f279a4b270d1c8b2"
+    },
+    {
+      "path": "merge.js",
+      "bytes": 166,
+      "sha256": "514c9f258d2a0d69b1cb0ff660b6b6af33deb45585c0a4fe3369b11172974f49"
+    },
+    {
+      "path": "order.js",
+      "bytes": 203,
+      "sha256": "f317be0d757b7f031e037853407b731d39ce3e414821fd3618a20dd330b2b1ea"
+    },
+    {
+      "path": "package.json",
+      "bytes": 110,
+      "sha256": "9b9d34dc6051ed2b834dc4f0ad7d86414038aa012bddd24501a81bdb232794f7"
+    }
+  ],
+  "unverified": [
+    "apk",
+    "native-providers",
+    "MCP-registration",
+    "commercial-game-target",
+    "complete-art-BOM"
+  ]
+}
