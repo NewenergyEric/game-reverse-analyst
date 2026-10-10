@@ -11,6 +11,12 @@ spec=importlib.util.spec_from_file_location('bridge',ROOT/'scripts/rea_bridge.py
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class BridgeTests(unittest.TestCase):
+    def test_public_2048_receipt_is_static_and_versioned(self):
+        receipt=json.loads((ROOT/'case-studies/2048-open-source/public-receipt.json').read_text(encoding='utf-8'))
+        self.assertFalse(receipt['analysis']['target_executed'])
+        self.assertEqual(receipt['analysis']['version'],'6.3.0')
+        self.assertEqual(receipt['analysis']['graph_nodes'],23)
+        self.assertEqual(receipt['target']['commit'],'478b6ec346e3787f589e4af751378d06ded4cbbc')
     def test_manifest_changes_with_input(self):
         with tempfile.TemporaryDirectory() as directory:
             target=Path(directory)/'a.js';target.write_text('export const n=1;',encoding='utf-8')

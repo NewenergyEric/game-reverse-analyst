@@ -1,0 +1,41 @@
+{
+  "case_id": "2048-open-source-478b6ec",
+  "target": {
+    "repository": "https://github.com/gabrielecirulli/2048",
+    "commit": "478b6ec346e3787f589e4af751378d06ded4cbbc",
+    "license": "MIT",
+    "copyright": "2014 Gabriele Cirulli"
+  },
+  "analysis": {
+    "tool": "rea-agents",
+    "version": "6.3.0",
+    "provider": "REA JavaScript analyzer v1",
+    "mode": "inert static parsing",
+    "target_executed": false,
+    "modules": 10,
+    "graph_nodes": 23,
+    "graph_edges": 33,
+    "evidence_id": "ev_064ecb8d503c613d03e8b8b482ff090906c0f020c749dedaa60b1d900fc42c5f",
+    "root_artifact_sha256": "998b95deaa367512690884041ddba58a52e8c236559e0fcdc119cfc57071eea6",
+    "output_sha256": "47a7fd180a4e3e88867a9a500a103d01903168f76458a327ae08c88244838c12"
+  },
+  "key_inputs": [
+    {"path": "js/game_manager.js", "sha256": "85e1c365e23a0e55a3d13573b62ec376bace96dbec7c0086eb65e60103431711"},
+    {"path": "js/grid.js", "sha256": "94ca0599b285f919df406189d2923d4257c18b2915f9a3588f1f88a13c8d1839"},
+    {"path": "js/html_actuator.js", "sha256": "0d25eb51c7b9de7e201a712fb731706578fda6617b9e1587854f641e68ca10b4"},
+    {"path": "index.html", "sha256": "4100a7589b1b011e44b552d875b507c35ca6c4a188853672a1100cf05f0e7ea6"}
+  ],
+  "findings": [
+    {"id": "R-SPAWN", "statement": "New tile is 2 with 90% probability and 4 with 10%.", "location": "js/game_manager.js:69-75"},
+    {"id": "R-MERGE", "statement": "A tile can merge only once per traversal.", "location": "js/game_manager.js:155-170"},
+    {"id": "R-SCORE", "statement": "Score increases by the merged tile value.", "location": "js/game_manager.js:166-170"},
+    {"id": "R-END", "statement": "No empty cell and no adjacent match ends the game.", "location": "js/game_manager.js:182-190,238-267"},
+    {"id": "R-PERSIST", "statement": "Grid, score, terminal state, and continuation state are persisted.", "location": "js/game_manager.js:79-109"}
+  ],
+  "limitations": [
+    "Static relationships do not prove runtime behavior.",
+    "Dynamic, reflected, obfuscated, and build-generated paths may remain unresolved.",
+    "This run validates the JavaScript provider only.",
+    "The full raw analysis record is intentionally not published."
+  ]
+}

@@ -1,5 +1,7 @@
 # Agent 使用说明 · game-reverse-analyst
 
+[English](AGENT-GUIDE.en.md)
+
 ## 入口与读取顺序
 
 先读 `SKILL.md`，再按目标读取 `references/rea-integration.md` 和 `references/deconstruction-package.md`。只有使用 REA 时才安装锁定的 npm 依赖；不要改全局 MCP 配置。
