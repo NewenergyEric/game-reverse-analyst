@@ -11,7 +11,7 @@
   <img src="assets/readme/hero-zh.webp?v=depth-v4" width="100%" alt="沿着一条玩法规则，拆到代码、算法、数值与美术资产。">
 </picture>
 
-[播放完整介绍 · 24 秒 MP4](assets/readme/hero-zh.mp4) · [GIF](assets/readme/hero-zh.gif) · [文字版](assets/readme/transcript-zh.md)
+[下载完整介绍 · 24 秒 MP4](assets/readme/hero-zh.mp4?raw=true) · [GIF](assets/readme/hero-zh.gif) · [文字版](assets/readme/transcript-zh.md)
 
 ## 装好，然后直接说
 

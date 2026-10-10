@@ -11,7 +11,7 @@ Start with how the game works, then connect gameplay states, code and data flow,
   <img src="assets/readme/hero-en.webp?v=depth-v4" width="100%" alt="Follow a gameplay rule into code, algorithms, numbers and art assets.">
 </picture>
 
-[Watch the full 24-second introduction · MP4](assets/readme/hero-en.mp4) · [GIF](assets/readme/hero-en.gif) · [Transcript](assets/readme/transcript-en.md)
+[Download the full 24-second introduction · MP4](assets/readme/hero-en.mp4?raw=true) · [GIF](assets/readme/hero-en.gif) · [Transcript](assets/readme/transcript-en.md)
 
 ## Install, then ask your agent
 
