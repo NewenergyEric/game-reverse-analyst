@@ -1,5 +1,7 @@
 [English](README.en.md)
 
+[**Game Dev Skills**](https://github.com/NewenergyEric/NewenergyEric/blob/main/GAME-DEV-SKILLS.md) · [市场研究](https://github.com/NewenergyEric/game-market-intelligence) · [游戏拆解](https://github.com/NewenergyEric/game-reverse-analyst) · [制作管理](https://github.com/NewenergyEric/game-production-manager) · [美术总监](https://github.com/NewenergyEric/art-director-skill)
+
 # 游戏拆解与逆向分析师
 
 ### 看懂玩法，找到实现依据。
@@ -12,6 +14,14 @@
 </picture>
 
 [下载完整介绍 · 24 秒 MP4](assets/readme/hero-zh.mp4?raw=true) · [GIF](assets/readme/hero-zh.gif) · [文字版](assets/readme/transcript-zh.md)
+
+## 为什么做这个
+
+**“看起来懂了”，还不够用来估工作量。**
+
+一个合成动作，背后可能连着状态、概率、存档、动效和资产变体。把观察追到可核对的位置，才能分清哪些已有依据，哪些还需要材料或实验，也才能讨论实现代价。
+
+它是 Game Dev Skills 的拆解岗位。接住市场研究选出的对象，把规则与系统拆成制作经理可估范围、美术总监可参考的清单。个人轮流承担这些岗位，团队则带着证据交接。
 
 ## 装好，然后直接说
 
@@ -71,10 +81,27 @@ python scripts/check_presentation.py
 
 [MIT License](LICENSE) · Made by Eric and Agents.
 
+## 告诉我，你在哪一步卡住
+
+用过一次后，欢迎留下：你想完成什么、给了哪些可公开资料、拿到了什么，以及还缺哪一步。
+
+[分享使用反馈或案例](https://github.com/NewenergyEric/game-reverse-analyst/issues/new?template=use-case.yml)
+
 ## 四个岗位，共同做出值得做的游戏
 
 个人制作者可以轮流承担四个岗位；团队通过同一份资料交接：什么值得做、竞对做了什么、资源和体量如何评估，以及如何创作自己的核心美术。
 
-[岗位如何交接证据、范围与美术资产](docs/WORKFLOW.md) · [Art Director](https://github.com/NewenergyEric/art-director-skill)
+[岗位如何交接证据、范围与美术资产](docs/WORKFLOW.md) · [四岗位总览](https://github.com/NewenergyEric/NewenergyEric/blob/main/GAME-DEV-SKILLS.md)
+
+| 眼前的问题 | 从这个岗位开始 | 带到下一步的资料 |
+|---|---|---|
+| 什么值得做？ | [市场研究](https://github.com/NewenergyEric/game-market-intelligence) | 机会比较、来源与验证缺口 |
+| 竞对做了什么？ | [游戏拆解](https://github.com/NewenergyEric/game-reverse-analyst) | 规则、实现依据与资产 BOM |
+| 做得起，也做得完吗？ | [制作管理](https://github.com/NewenergyEric/game-production-manager) | SOW、工作包、依赖与验收 |
+| 核心美术如何建立？ | [美术总监](https://github.com/NewenergyEric/art-director-skill) | 共享规范、代表样板与项目包 |
+
+**个人创作者：** 从当前卡住的问题开始，按需要切换岗位。**团队：** 用实际报告、BOM、工作包和美术规范交接；每一步保留来源、版本与未定项。
+
+这是协作方法，当前没有自动串行执行四个 Agent 的编排器。
 
 ![市场研究、竞品拆解、项目评估与核心美术创作；样板与成本反馈推动前序决定修订。](assets/readme/workflow-zh.png)
