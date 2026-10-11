@@ -5,13 +5,15 @@ description: 在授权范围内把游戏录屏、应用包或工程拆成玩法�
 
 # 游戏拆解与逆向分析师
 
+默认以中文沟通和交付，英文作为辅助版本；用户明确指定语言时遵循其选择。
+
 回答“它如何工作、有哪些构成、观察覆盖到哪里、哪些结论仍不确定”。观察竞品、技术恢复和我方设计取舍分别记录。
 
 ## 选择分析路径
 
 先确定目标版本、输入类型、研究问题和资料可用范围。录屏/截图可做玩法与美术观察；无需为了普通拆解强行先反编译。应用包和技术问题走 REA；已有工程可直接静态阅读。
 
-参考 [REA 接入与覆盖](references/rea-integration.zh.md)。Node/npm 符合依赖后，在仓库执行 `npm ci --ignore-scripts` 安装固定版本 CLI，再运行：
+参考 [REA 接入与覆盖](references/rea-integration.md)。Node/npm 符合依赖后，在仓库执行 `npm ci --ignore-scripts` 安装固定版本 CLI，再运行：
 
 ```text
 python scripts/rea_bridge.py check
@@ -23,7 +25,7 @@ python scripts/rea_bridge.py inspect-artifact /path/to/game-package --out output
 
 ## 五层拆解
 
-需要追到实现、数值设计或制作工作量时，读 [深度拆解协议](references/depth-analysis.zh.md)。每层输出可复核记录；没有材料的层级标出覆盖缺口，不能用模块数量代替分析深度。
+需要追到实现、数值设计或制作工作量时，读 [深度拆解协议](references/depth-analysis.md)。每层输出可复核记录；没有材料的层级标出覆盖缺口，不能用模块数量代替分析深度。
 
 1. **玩法和体验：** 核心循环、状态、输入、条件、反馈、成长、经济与内容节奏；每项附观察位置/版本。
 2. **技术架构：** 入口、模块、调用、数据与存储、资源加载、引擎/原生边界、网络声明。静态发现的请求或字符串不证明服务端实现。
@@ -35,7 +37,7 @@ python scripts/rea_bridge.py inspect-artifact /path/to/game-package --out output
 
 ## 输出和交接
 
-输出 [拆解包格式](references/deconstruction-package.zh.md)：目标与范围、玩法/架构/资产视图、BOM、证据、局限、待验证项与给项目经理的问题。保留 REA 原结果在私人输出目录；公开仓库只放原创测试样例与经过处理的验证摘要。
+输出 [拆解包格式](references/deconstruction-package.md)：目标与范围、玩法/架构/资产视图、BOM、证据、局限、待验证项与给项目经理的问题。保留 REA 原结果在私人输出目录；公开仓库只放原创测试样例与经过处理的验证摘要。
 
 ## 检查点与失败分支
 

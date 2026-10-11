@@ -26,6 +26,8 @@ Count CSS components, value variants, logical states and files separately, with 
 
 The target game was not executed. Source inference, formula calculation and runtime verification are separate. A JavaScript case does not establish support for every APK, Unity or native game. Footage cannot prove server algorithms; unsupported layers remain unknown.
 
-[Reproducible case](../case-studies/2048-open-source/deep-dive.md)
+[Reproducible case](../case-studies/2048-open-source/deep-dive.en.md)
 
-[Agent guide](AGENT-GUIDE.md)
+[Agent guide](AGENT-GUIDE.en.md)
+
+Chinese is the primary entry; this English guide remains available.

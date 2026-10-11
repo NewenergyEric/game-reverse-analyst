@@ -1,6 +1,6 @@
 # Open-Source 2048 — Evidence-Backed Analysis
 
-[Continue: code, algorithms, numbers and art BOM](deep-dive.md)
+[Continue: code, algorithms, numbers and art BOM](deep-dive.en.md)
 
 [中文](README.zh.md) · [Public evidence receipt](public-receipt.json) · [Chinese dashboard](dashboard-zh.png)
 

@@ -1,8 +1,8 @@
 # 2048 开源源码 · 证据化拆解
 
-[继续看：代码、算法、数值与美术 BOM 深挖](deep-dive.zh.md)
+[继续看：代码、算法、数值与美术 BOM 深挖](deep-dive.md)
 
-[English](README.md) · [公开证据回执](public-receipt.json) · [英文看板](dashboard-en.png)
+[English](README.en.md) · [公开证据回执](public-receipt.json) · [英文看板](dashboard-en.png)
 
 [![2048 开源源码拆解看板](dashboard-zh.png)](dashboard-zh.png)
 

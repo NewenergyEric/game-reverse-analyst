@@ -3,12 +3,13 @@
   "skill": "game-reverse-analyst",
   "role_zh": "游戏拆解与逆向分析师",
   "role_en": "Game Reverse Analyst",
-  "purpose": "Understand game systems, content and asset structure.",
+  "purpose": "在授权范围内用 REA 和观察证据拆解玩法、架构、规则与资产结构，并保留证据、局限和交接问题。",
   "version": "0.1.0",
   "purpose_zh": "在授权范围内用 REA 和观察证据拆解玩法、架构、规则与资产结构，并保留证据、局限和交接问题。",
-  "default_language": "en",
+  "default_language": "zh",
   "supported_languages": [
-    "en",
-    "zh"
-  ]
+    "zh",
+    "en"
+  ],
+  "purpose_en": "Understand game systems, content and asset structure."
 }

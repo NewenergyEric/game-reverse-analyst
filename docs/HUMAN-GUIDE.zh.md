@@ -1,4 +1,4 @@
-[English](HUMAN-GUIDE.md)
+[English](HUMAN-GUIDE.en.md)
 
 # 游戏拆解与逆向分析师 · 使用说明
 
@@ -26,6 +26,8 @@
 
 本案例没有运行目标游戏。源码推导、公式复算、运行验证分开标记。REA 的 JavaScript 案例不代表任意 APK、Unity 或原生游戏都已验证可拆解；录屏不能证明服务端算法。没有材料的数值、代码或资产层级保留未知。
 
-[可复现案例](../case-studies/2048-open-source/deep-dive.zh.md)
+[可复现案例](../case-studies/2048-open-source/deep-dive.md)
 
-[Agent guide](AGENT-GUIDE.zh.md)
+[Agent guide](AGENT-GUIDE.md)
+
+默认入口、展示媒体与导出标题使用中文，英文材料通过 `.en.md` / `.en.json` 访问。

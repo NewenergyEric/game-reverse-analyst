@@ -1,66 +1,66 @@
-[中文](README.zh.md)
+[English](README.en.md)
 
-# Game Reverse Analyst
+# 游戏拆解与逆向分析师
 
-### Understand the play. Trace the implementation.
+### 看懂玩法，找到实现依据。
 
-Start with how the game works, then connect gameplay states, code and data flow, algorithm boundaries, numeric parameters, asset families and presentation. Footage supports observation; authorized source or packages enable deeper analysis where tools provide coverage.
+从“它为什么这样运转”出发，连接玩法状态、代码与数据流、算法边界、数值参数、资产家族和表现层。录屏先回答可观察的问题；合法可用的工程或应用包再按覆盖能力深入。
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-en.png?v=depth-v4">
-  <img src="assets/readme/hero-en.webp?v=depth-v4" width="100%" alt="Follow a gameplay rule into code, algorithms, numbers and art assets.">
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/readme/hero-zh.png?v=depth-v4">
+  <img src="assets/readme/hero-zh.webp?v=depth-v4" width="100%" alt="沿着一条玩法规则，拆到代码、算法、数值与美术资产。">
 </picture>
 
-[Download the full 24-second introduction · MP4](assets/readme/hero-en.mp4?raw=true) · [GIF](assets/readme/hero-en.gif) · [Transcript](assets/readme/transcript-en.md)
+[下载完整介绍 · 24 秒 MP4](assets/readme/hero-zh.mp4?raw=true) · [GIF](assets/readme/hero-zh.gif) · [文字版](assets/readme/transcript-zh.md)
 
-## Install, then ask your agent
+## 装好，然后直接说
 
 ```sh
 npx skills add https://github.com/NewenergyEric/game-reverse-analyst
 ```
 
-Install in an Agent Skills-compatible tool such as Codex, Claude Code or Cursor. Put your materials where the agent can read them, then describe the question.
+在支持 Agent Skills 的工具中安装，例如 Codex、Claude Code、Cursor；将资料放进 Agent 能读取的位置，再描述问题。
 
-### Trace code and algorithms
+### 追到代码和算法
 
-> Why can this 2048 left move not immediately make an 8? Show the call path, state changes and source locations.
+> 这个 2048 为什么一次左移不能直接合成 8？给我调用路径、状态变化和可复核位置。
 
-Receive the input-to-save chain, merge boundaries, pinned source version and specific test questions.
+得到输入到存档的实现链、合并边界、源码版本与对应测试问题。
 
-### Inspect numeric design
+### 核对数值设计
 
-> Would a 20% spawn chance for 4 make the game harder? Explain current parameters and what needs an experiment.
+> 新生 4 的概率改成 20%，会更难多少？先解释现有参数，告诉我哪些能算、哪些需要实验。
 
-The 90/10 probability and expected tile value can be recalculated. Difficulty and win/score distributions require a player policy, seeds and real runs.
+现有 90/10 概率与期望面值可复算；难度、胜率和分数分布需要玩家策略、种子与实际运行。
 
-### Build an art and content BOM
+### 拆出美术和内容 BOM
 
-> Do eleven tile values need eleven images? Separate components, states, motion, fonts and platform metadata.
+> 11 种方块数值需要 11 张图吗？整理组件、状态、动效、字体与平台素材。
 
-Count CSS components, value variants, logical states and files separately, with source locations and production implications.
+按 CSS 组件、数值变体、逻辑状态与文件分别计数，并提供原位置和制作影响。
 
-## See a concrete case
+## 看一个具体案例
 
-**Real open-source case: 2048 at commit 478b6ec.** Extends the existing REA 6.3.0 static receipt with code flow, merge algorithm, spawn probabilities, formula calculations and an asset BOM. Hashes verified for 18 input files.
+**真实开源案例：2048，固定 commit 478b6ec。** 在已有 REA 6.3.0 静态回执之上，补充代码链、合并算法、生成概率、公式复算与资产 BOM；18 个输入文件的哈希已核验。
 
-[Full analysis and downloadable records](case-studies/2048-open-source/deep-dive.md)
+[完整分析与可下载底稿](case-studies/2048-open-source/deep-dive.md)
 
-[![Game Reverse Analyst](case-studies/2048-open-source/dashboard-en.png?v=depth-v4)](case-studies/2048-open-source/dashboard-en.png)
+[![游戏拆解与逆向分析师](case-studies/2048-open-source/dashboard-zh.png?v=depth-v4)](case-studies/2048-open-source/dashboard-zh.png)
 
-## What the team receives
+## 最后交给团队什么
 
-- Code, rules and numbers — `deep-dive.json`
-- Art assets and counting basis — `asset-bom.csv`
-- Input hashes and calculations — `verification.json`
+- 代码、规则与数值 — `deep-dive.json`
+- 美术资产与计数依据 — `asset-bom.csv`
+- 输入哈希与公式复算 — `verification.json`
 
 <details>
-<summary>Boundaries, guides and validation</summary>
+<summary>能力边界、说明书与验证</summary>
 
-The target game was not executed. Source inference, formula calculation and runtime verification are separate. A JavaScript case does not establish support for every APK, Unity or native game. Footage cannot prove server algorithms; unsupported layers remain unknown.
+本案例没有运行目标游戏。源码推导、公式复算、运行验证分开标记。REA 的 JavaScript 案例不代表任意 APK、Unity 或原生游戏都已验证可拆解；录屏不能证明服务端算法。没有材料的数值、代码或资产层级保留未知。
 
-Core helpers use Python 3.10+ and the standard library. Remotion is optional presentation tooling.
+核心工具使用 Python 3.10+ 标准库；动画源码是可选的 Remotion 工程。
 
-[Human guide](docs/HUMAN-GUIDE.md) · [Agent guide](docs/AGENT-GUIDE.md) · [SKILL.md](SKILL.md) · [Tests and review](evals/) · [Motion source](motion/README.md)
+[人类说明书](docs/HUMAN-GUIDE.md) · [Agent guide](docs/AGENT-GUIDE.md) · [SKILL.md](SKILL.md) · [Tests and review](evals/) · [Motion source](motion/README.md)
 
 ```sh
 python -m unittest discover -s tests -v
@@ -71,10 +71,10 @@ python scripts/check_presentation.py
 
 [MIT License](LICENSE) · Made by Eric and Agents.
 
-## Four roles. One game worth making.
+## 四个岗位，共同做出值得做的游戏
 
-For a solo creator these are four hats; for a team they are connected responsibilities. Explore what is worth making, what competitors do, the resources it requires, and the original art that defines it.
+个人制作者可以轮流承担四个岗位；团队通过同一份资料交接：什么值得做、竞对做了什么、资源和体量如何评估，以及如何创作自己的核心美术。
 
-[How the roles exchange evidence, scope and visual assets](docs/WORKFLOW.md) · [Art Director](https://github.com/NewenergyEric/art-director-skill)
+[岗位如何交接证据、范围与美术资产](docs/WORKFLOW.md) · [Art Director](https://github.com/NewenergyEric/art-director-skill)
 
-![Market intelligence → competitor analysis → production assessment → original art direction; prototype and cost feedback revise earlier decisions.](assets/readme/workflow-en.png)
+![市场研究、竞品拆解、项目评估与核心美术创作；样板与成本反馈推动前序决定修订。](assets/readme/workflow-zh.png)

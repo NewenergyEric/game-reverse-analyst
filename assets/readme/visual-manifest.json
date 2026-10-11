@@ -155,5 +155,5 @@
   "provenance": "Original role-specific Remotion composition. Font: Noto Sans SC variable subset, SIL OFL. No proprietary fonts or target-game art copied.",
   "content_rule": "Human prompts, concrete steps and actual tool outputs. Both languages share the same case baseline. Complete boards are rendered independently from animation.",
   "case_baseline": "case-studies/2048-open-source/deep-dive.json",
-  "default_language": "en"
+  "default_language": "zh"
 }
