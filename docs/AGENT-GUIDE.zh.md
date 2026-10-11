@@ -1,6 +1,6 @@
 # Agent 使用说明 · game-reverse-analyst
 
-[English](AGENT-GUIDE.md)
+[English](AGENT-GUIDE.en.md)
 
 ## 入口与读取顺序
 
@@ -32,7 +32,7 @@
 
 ## 深度案例入口
 
-[Protocol](../references/depth-analysis.zh.md) · [Case](../case-studies/2048-open-source/deep-dive.zh.md)
+[Protocol](../references/depth-analysis.md) · [Case](../case-studies/2048-open-source/deep-dive.md)
 
 ```sh
 python scripts/check_2048_case.py --source /path/to/pinned-2048 --out outputs/2048-formulas

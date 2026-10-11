@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Reverse Analyst"
+  short_description: "Understand game systems, content and asset structure."
+  default_prompt: "Use $game-reverse-analyst to examine the supplied game materials and version, explain its systems and asset structure with evidence, and identify implications for our own project."

@@ -1,6 +1,6 @@
 # 2048: follow a merge rule into code, numbers and assets
 
-[中文](deep-dive.zh.md) · [Structure and original REA receipt](README.md) · [Analysis JSON](deep-dive.json) · [Asset BOM](asset-bom.csv) · [Formula receipt](verification.json)
+[中文](deep-dive.zh.md) · [Structure and original REA receipt](README.en.md) · [Analysis JSON](deep-dive.json) · [Asset BOM](asset-bom.csv) · [Formula receipt](verification.json)
 
 > I am designing a sliding merge game. Why does this move not make an 8? What does the spawn probability mean? How many images does the art team actually need?
 

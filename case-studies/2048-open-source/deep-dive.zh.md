@@ -1,6 +1,6 @@
 # 2048：从一条合并规则，追到代码、数值和资产
 
-[English](deep-dive.md) · [结构与 REA 原回执](README.zh.md) · [机器可读分析](deep-dive.json) · [资产 BOM](asset-bom.csv) · [复算回执](verification.json)
+[English](deep-dive.en.md) · [结构与 REA 原回执](README.md) · [机器可读分析](deep-dive.json) · [资产 BOM](asset-bom.csv) · [复算回执](verification.json)
 
 > 我想做一个滑动合并玩法。它为什么不会一次合成 8？随机生成如何影响节奏？主美到底要做几张图？
 
